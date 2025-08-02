@@ -19,32 +19,53 @@ header {
   background-color: var(--color-primario);
   color: white;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem 1rem 0.5rem;
 }
 
 header .lema {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #e0e0e0;
-  margin: 0.3rem 0 0;
+  margin: 0.5rem auto;
+  max-width: 90%;
+}
+
+.menu-icon {
+  display: none;
+  background-color: var(--color-secundario);
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem auto;
+  width: max-content;
+  border-radius: 6px;
+}
+
+#menu-toggle {
+  display: none;
 }
 
 nav.categorias {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   background-color: var(--color-secundario);
   padding: 0.5rem;
-  text-align: center;
-  flex-wrap: wrap;
 }
 
 nav.categorias a {
   color: white;
   text-decoration: none;
-  margin: 0.3rem 0.5rem;
+  padding: 0.7rem 1.1rem;
+  background-color: var(--color-boton);
+  border-radius: 6px;
   font-weight: bold;
-  display: inline-block;
 }
 
 nav.categorias a:hover {
-  text-decoration: underline;
+  background-color: var(--color-boton-hover);
 }
 
 main {
@@ -57,7 +78,7 @@ section {
 
 section h2 {
   color: var(--color-destacado);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   border-bottom: 2px solid var(--color-destacado);
   padding-bottom: 0.3rem;
 }
@@ -69,7 +90,7 @@ a.whatsapp {
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
-  margin-top: 0.5em;
+  margin: 0.5em 0;
 }
 
 a.whatsapp:hover {
@@ -77,9 +98,22 @@ a.whatsapp:hover {
 }
 
 iframe {
-  max-width: 100%;
+  width: 100%;
   height: 400px;
   border: none;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-primario);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
 footer {
@@ -90,9 +124,24 @@ footer {
   font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-  nav.categorias a {
+@media (max-width: 700px) {
+  .menu-icon {
     display: block;
-    margin: 0.5rem auto;
+  }
+
+  nav.categorias {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav.categorias {
+    display: flex;
+  }
+
+  nav.categorias a {
+    margin: 0.3rem 0;
+    width: 90%;
+    text-align: center;
   }
 }
